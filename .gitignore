@@ -1,0 +1,30 @@
+# ── 构建产物 ──
+WhaleTheme/WhaleTheme.exe
+WhaleTheme/WhaleTheme_new.exe
+WhaleTheme/*.exe
+WhaleTheme/build-log.txt
+
+# ── 播放内核：第三方 GPL 二进制，不进仓库 ──
+# 自己放：把 mpv.exe 拖到 tools\打包播放内核.cmd 上生成
+WhaleTheme/build/*.gz
+WhaleTheme/build/mpv.exe
+
+# ── 本地工作区 / 回收站 ──
+_research/
+_trash_*/
+*.7z
+
+# ── 系统与编辑器杂物 ──
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.incoming
+.vs/
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+
+# 但 build 目录本身要留着（.gitkeep 占位，保证编译脚本能找到目录）
+!WhaleTheme/build/.gitkeep

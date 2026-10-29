@@ -1,0 +1,49 @@
+# NOTICE —— 第三方组件
+
+本项目的 **代码** 以 MIT 发布（见 LICENSE），**素材** 以 CC BY-NC-SA 4.0 发布
+（见 LICENSE-ASSETS.md）。此外还用到下面这个第三方程序。
+
+---
+
+## mpv
+
+- 组件：`mpv`（含 FFmpeg、libplacebo 等）
+- 本仓库适配/验证的版本：**mpv v0.41.0-1227-ge471496c5**
+  （built on Oct 21 2026；FFmpeg N-127893-g9a861e968；libplacebo v7.377.0）
+- 许可证：**GNU GPL v2 或更高版本**（GPL-2.0-or-later）
+- 项目主页：https://mpv.io/
+- 源码仓库：https://github.com/mpv-player/mpv
+- Windows 构建：https://github.com/shinchiro/mpv-winbuild-cmake/releases
+- 许可证全文：https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+
+### 本仓库如何对待它
+
+**仓库里不包含 mpv 的二进制文件**，也不包含 `build/mpv.exe.gz`。程序运行时会从
+内嵌资源解压，但该资源需要使用者自己准备：
+
+1. 自行获取 Windows 版 mpv（官方分发渠道即可）；
+2. 把 `mpv.exe` 拖到 `WhaleTheme/tools/打包播放内核.cmd` 上，生成
+   `WhaleTheme/build/mpv.exe.gz`；
+3. 再执行 `WhaleTheme/编译.cmd` 打包进 exe。
+
+mpv 以**独立进程**方式被调起（`--wid` 挂载到桌面层窗口），本项目和 mpv 之间
+不构成链接关系，属于进程间协作。
+
+### 如果你要分发打包好的 exe
+
+.exe 里内嵌了 mpv 的压缩副本，这属于**再分发 GPL 软件**。此时你必须满足 GPL v2 的要求，
+至少包括：
+
+- 随分发物提供 mpv 对应的**完整源码**，或给出**书面提供承诺**（有效期至少三年）；
+- 保留 mpv 的版权声明与许可证文本（本文件即可作为声明，建议连同 GPL 全文一并附上）；
+- 不得对 mpv 施加额外限制。
+
+最省事的做法：在 Release 说明里写清 mpv 版本号，并附上 mpv 官方仓库对应 commit 的链接。
+如果你只想让别人自己编译，那就直接把这两个文件排除在外（默认的 `.gitignore` 已经排除了）。
+
+---
+
+## 其他
+
+- 编译器：.NET Framework 4.x 自带的 `csc.exe`（系统组件，不随本项目分发）
+- 素材作者署名见 LICENSE-ASSETS.md
